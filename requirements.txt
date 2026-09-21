@@ -1,0 +1,23 @@
+# Consolidated requirements for all three modules (data_pipeline, analytics, support_assistant).
+# Per-module requirements.txt also exists under support_assistant/ for that module alone.
+
+# Module 1 — data_pipeline
+requests
+beautifulsoup4
+pandas
+
+# Module 2 — analytics
+seaborn
+matplotlib
+numpy
+scikit-learn
+imbalanced-learn
+joblib
+
+# Module 3 — support_assistant
+fastapi
+uvicorn[standard]
+pydantic
+chromadb
+sentence-transformers
+langgraph
