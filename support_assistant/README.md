@@ -24,29 +24,12 @@ docker run -p 7860:7860 zepto-support-assistant
 ```
 
 ## Example call transcripts
-{"answer":"Based on the retrieved context: Zepto delivers grocery and household essentials to serviceable pin codes within 10 to 30 minutes of order confirmation, depending on the customer's delivery zone and current order volume. Standard del","sources":["doc_01","doc_05","doc_02"],"confidence":1.0}
 
-**Call 1 — should trigger retrieval** (`retrieve_and_answer`, contains "delivery"):
-```json
-POST /ask {"query": "Do you offer free delivery?"}
--> 200 OK
-{
-  "answer": "Based on the retrieved context: Zepto delivers grocery and household essentials to serviceable pin codes within 10 to 30 minutes ...",
-  "sources": ["doc_01", "...", "..."],
-  "confidence": 1.0
-}
-```
+**Call 1 — triggers retrieval** (query: "Do you offer free delivery?"):
+{"answer":"Based on the retrieved context: Zepto delivers grocery and household essentials to serviceable pin codes within 10 to 30 minutes of order confirmation...","sources":["doc_01","doc_05","doc_02"],"confidence":1.0}
 
-**Call 2 — should NOT trigger retrieval** (`direct_answer`, no policy keyword):
-```json
-POST /ask {"query": "What is the capital of France?"}
--> 200 OK
-{
-  "answer": "I can only answer questions about Zepto policies right now.",
-  "sources": [],
-  "confidence": 1.0
-}
-```
+**Call 2 — does NOT trigger retrieval** (query: "What is the capital of France?"):
+{"answer":"I can only answer questions about Zepto policies right now.","sources":[],"confidence":1.0}
 
 ## Architecture (ingestion -> embedding -> retrieval -> generation)
 1. **Ingestion**: `docs/doc_01.txt` … `doc_08.txt` — Zepto's 8 policy
