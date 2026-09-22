@@ -24,10 +24,7 @@ docker run -p 7860:7860 zepto-support-assistant
 ```
 
 ## Example call transcripts
-*(Fill in with your actual run's output — the routing/logic below was
-verified with a stand-in embedder during development; you'll see genuinely
-relevant retrieved chunks once `sentence-transformers` downloads its real
-model on first run.)*
+{"answer":"Based on the retrieved context: Zepto delivers grocery and household essentials to serviceable pin codes within 10 to 30 minutes of order confirmation, depending on the customer's delivery zone and current order volume. Standard del","sources":["doc_01","doc_05","doc_02"],"confidence":1.0}
 
 **Call 1 — should trigger retrieval** (`retrieve_and_answer`, contains "delivery"):
 ```json
